@@ -1,0 +1,19 @@
+<li [ngClass]="{'list-group-item': true,
+'list-group-item-success': loveIt > DontloveIt ,
+'list-group-item-danger':  loveIt < DontloveIt}">
+  <div class="row" style="margin-left: 5px;margin-right:5px;">
+    <h3 style="font-style:oblique;float:right">{{ createdAt | date : 'short' }}</h3>
+    <h2>{{ title }}</h2>
+  </div>
+
+  <p style="text-align: justify; size:18pc; margin-left:5px;font-family:'Arial Narrow Bold', sans-serif">
+    {{ content }}
+  </p>
+  <div class="row" style="margin-left: 5px;margin-left:5px;">
+    <button class="btn btn-success" style="cursor: pointer;" (click)="onLiked()">Love it
+      ({{ loveIt }})</button>
+
+    <button class="btn btn-danger" style="margin-left:5px; cursor: pointer;" (click)="onDisliked()">Don't love it
+      ({{DontloveIt}})</button>
+  </div>
+</li>
