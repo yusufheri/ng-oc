@@ -1,6 +1,7 @@
-# Ng50
+# BlogPost
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+Thank you the team OpenClassroom.
 
 ## Development server
 
