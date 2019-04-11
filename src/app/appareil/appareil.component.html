@@ -2,13 +2,14 @@
 'list-group-item-success': appareilStatus === 'En marche',
 'list-group-item-danger': appareilStatus === 'éteint',
 'list-group-item-warning': appareilStatus === 'En panne' }">
-  <div style="width:20px; height:20px;background-color:red;"
-  *ngIf="appareilStatus === 'éteint'"></div>
-  <div style="width:20px; height:20px;background-color:green;"
-  *ngIf="appareilStatus === 'En marche'"></div>
-  <div style="width:20px; height:20px;background-color:yellow;"
-  *ngIf="appareilStatus === 'En panne'"></div>
+  <!--
+<div style="width:20px; height:20px;background-color:red;" *ngIf="appareilStatus === 'éteint'"></div>
+  <div style="width:20px; height:20px;background-color:green;" *ngIf="appareilStatus === 'En marche'"></div>
+  <div style="width:20px; height:20px;background-color:yellow;" *ngIf="appareilStatus === 'En panne'"></div>
+-->
 
-  <h4 [ngStyle]="{color : getColor()}">Appareil : {{ appareilName }} -- Status : {{ getStatus() }}</h4>
-  <input type="text" class="form-control" [(ngModel)]="appareilName">
+  <h4 [ngStyle]="{color : getColor()}">Appareil : {{ appareilName }} -- Status : {{ appareilStatus }}</h4>
+  <input type="text" class="form-control" [(ngModel)]="appareilName"><br><br>
+  <button class="btn btn-sm btn-success" *ngIf="appareilStatus === 'éteint'" (click)="onSwitch()">Démarrer</button>
+  <button class="btn btn-sm btn-danger" *ngIf="appareilStatus === 'En marche'" (click)="onSwitch()">Eteindre</button>
 </li>

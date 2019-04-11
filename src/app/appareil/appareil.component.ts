@@ -1,5 +1,6 @@
 // tslint:disable-next-line: quotemark
 import { Component, Input, OnInit } from "@angular/core";
+import { AppareilService } from "../services/appareil.service";
 
 @Component({
   selector: "app-appareil",
@@ -9,22 +10,31 @@ import { Component, Input, OnInit } from "@angular/core";
 export class AppareilComponent implements OnInit {
   @Input() appareilName: string;
   @Input() appareilStatus: string;
+  @Input() appareilIndex: number;
 
-  constructor() {}
+  constructor(private appareilService: AppareilService) {}
 
   ngOnInit() {}
+
+  onSwitch() {
+    if (this.appareilStatus === "En marche") {
+      this.appareilService.switchOffOne(this.appareilIndex);
+    } else if (this.appareilStatus === "éteint") {
+      this.appareilService.switchOnOne(this.appareilIndex);
+    }
+  }
 
   getStatus() {
     return this.appareilStatus;
   }
 
   getColor() {
-    if (this.appareilStatus === 'éteint') {
-      return 'red';
-    } else if (this.appareilStatus === 'En marche') {
-      return 'green';
+    if (this.appareilStatus === "éteint") {
+      return "red";
+    } else if (this.appareilStatus === "En marche") {
+      return "green";
     } else {
-      return 'yellow';
+      return "yellow";
     }
   }
 }
